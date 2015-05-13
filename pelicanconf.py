@@ -34,9 +34,8 @@ SOCIAL = (('github', 'https://github.com/LeoHung'),
 
 DEFAULT_PAGINATION = 10
 
-STATIC = ["images", "publication"]
-
-STATIC_PATHS = ['CNAME', "robots.txt"]
+STATIC = ["images", "publication", "CNAME"]
+STATIC_PATHS = ["images", "publication", "CNAME"]
 
 COVER_IMG_URL = "/images/cover.jpg"
 
