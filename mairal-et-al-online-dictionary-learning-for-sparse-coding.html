@@ -48,16 +48,16 @@
                             // under                         </p>
                 </header>
             </section>
-            <p>Mairal et al. Online dictionary learning for sparse coding. ICML 2009.  </p>
-<p>The following figures are all from this paper. </p>
-<p>The paper goal is to propose a online learning method to learn sparse coding dictionary, the basis set which can represent specific data through linear combination, for large scale data. </p>
+            <p>Mairal et al. Online dictionary learning for sparse coding. ICML 2009.</p>
+<p>The following figures are all from this paper.</p>
+<p>The paper goal is to propose a online learning method to learn sparse coding dictionary, the basis set which can represent specific data through linear combination, for large scale data.</p>
 <h2>Algorithm</h2>
-<p>{% img center /images/ammai/03/online_learning_algorithm.png %}</p>
-<p>The algorithm is showed above. Assuming the training set composed of i.i.d. samples of a distribution, the method is minimizing the cost function, the difference between linear combination of basis set and real data, by stochastic gradient discent to find decomposing coefficient $latex \alpha $ and dictionary $latex D$ iteratively. </p>
-<p>{% img center /images/ammai/03/online_updating_algorithm.png %}</p>
-<p>Their algorithm above for updating the dictionary uses block-coordinate descent. </p>
+<p><img alt="online_learning_algorithm" src="/images/ammai/03/online_learning_algorithm.png" /></p>
+<p>The algorithm is showed above. Assuming the training set composed of i.i.d. samples of a distribution, the method is minimizing the cost function, the difference between linear combination of basis set and real data, by stochastic gradient discent to find decomposing coefficient $latex \alpha $ and dictionary $latex D$ iteratively.</p>
+<p><img alt="online_updating_algorithm" src="/images/ammai/03/online_updating_algorithm.png" /></p>
+<p>Their algorithm above for updating the dictionary uses block-coordinate descent.</p>
 <h2>My comment</h2>
-<p>The work is solid because they present not only the experiment result  but also the sophisticated theoretical proof showing the convergence of the online learning method; however, the assumption, the training set composed of i.i.d. samples of a distribution, may be suspicious because it is not alway satisfied in real world.   </p>
+<p>The work is solid because they present not only the experiment result  but also the sophisticated theoretical proof showing the convergence of the online learning method; however, the assumption, the training set composed of i.i.d. samples of a distribution, may be suspicious because it is not alway satisfied in real world.</p>
             <div class="hr"></div>
             <a href="#" class="go-top">Go Top</a>
 <footer class="footer">

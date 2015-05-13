@@ -49,22 +49,22 @@
                 </header>
             </section>
             <p>PLSI &amp; LDA</p>
-<p>Origin source: "Probabilistic latent semantic indexing," T. Hofmann, SIGIR, 1999. "Latent Dirichlet allocation," D. Blei, A. Ng, and M. Jordan. . Journal of Machine Learning Research, 3:993–1022, January 2003 The following figures and formula are copied from above papers. </p>
-<p>PLSI and LDA are both hidden-class decomposition method ( or dimension reduction method ) but are different in modeling approaches; through mapping documents from high-dimension to low-dimension hidden class space, the ambiguous words relationship can be detected such that improve information retrieval precision. </p>
+<p>Origin source: "Probabilistic latent semantic indexing," T. Hofmann, SIGIR, 1999. "Latent Dirichlet allocation," D. Blei, A. Ng, and M. Jordan. . Journal of Machine Learning Research, 3:993–1022, January 2003 The following figures and formula are copied from above papers.</p>
+<p>PLSI and LDA are both hidden-class decomposition method ( or dimension reduction method ) but are different in modeling approaches; through mapping documents from high-dimension to low-dimension hidden class space, the ambiguous words relationship can be detected such that improve information retrieval precision.</p>
 <h2>PLSI</h2>
-<p>PLSI use the hidden-class decomposition technique PLSA, which is a generative probability model assuming a word in a specific document is generated as follows: (1) randomly pick a hidden-topic z for the document following P(z|d) (2) randomly pick a word w conditioning the topic z following P(w|z) (3) sum up all hidden topic result of generating word w. In other words, wordis relative to unobservable hidden-topic whose probability can not be calculated directly except an EM method, which compose with two steps: expectation step and maximization step. </p>
-<p>{% img center /images/ammai/04/Pdm.png %}</p>
-<p>In E step, calculate posterior probabilities given document and word as following formula. </p>
-<p>{% img center /images/ammai/04/EStep.png %}</p>
-<p>In M step, calculate prior probabilities. </p>
-<p>{% img center /images/ammai/04/MStep.png %}</p>
-<p>Besides, to avoid overfitting, the authors proposed TEM method, which adds a power coefficient $latex \beta $ to original EM formula as follows: </p>
-<p>{% img center /images/ammai/04/TEM.png %}</p>
+<p>PLSI use the hidden-class decomposition technique PLSA, which is a generative probability model assuming a word in a specific document is generated as follows: (1) randomly pick a hidden-topic z for the document following P(z|d) (2) randomly pick a word w conditioning the topic z following P(w|z) (3) sum up all hidden topic result of generating word w. In other words, wordis relative to unobservable hidden-topic whose probability can not be calculated directly except an EM method, which compose with two steps: expectation step and maximization step.</p>
+<p><img alt="Pdm" src="/images/ammai/04/Pdm.png" /></p>
+<p>In E step, calculate posterior probabilities given document and word as following formula.</p>
+<p><img alt="EStep" src="/images/ammai/04/EStep.png" /></p>
+<p>In M step, calculate prior probabilities.</p>
+<p><img alt="MStep" src="/images/ammai/04/MStep.png" /></p>
+<p>Besides, to avoid overfitting, the authors proposed TEM method, which adds a power coefficient $latex \beta $ to original EM formula as follows:</p>
+<p><img alt="TEM" src="/images/ammai/04/TEM.png" /></p>
 <h2>LDA</h2>
 <p>LDA is a graphical model approach to model words generation process.</p>
-<p>{% img center /images/ammai/04/LDA.png %}</p>
+<p><img alt="LDA" src="/images/ammai/04/LDA.png" /></p>
 <h2>Advantages</h2>
-<p>For PLSI, the formula in the M-step minimize word perplexity directly. For LDA, because LDA is a graphical model, LDA can be extended to more complex model.    </p>
+<p>For PLSI, the formula in the M-step minimize word perplexity directly. For LDA, because LDA is a graphical model, LDA can be extended to more complex model.</p>
             <div class="hr"></div>
             <a href="#" class="go-top">Go Top</a>
 <footer class="footer">
