@@ -13,5 +13,5 @@ categories: networkx, python, pycon_2014, pycon_tw
 [Github Link](https://github.com/LeoHung/pycon2014_tw_company_core_network)
 
 # Result
-{% img /images/closeness_50.png %}
+![Closeness](/images/closeness_50.png)
 
