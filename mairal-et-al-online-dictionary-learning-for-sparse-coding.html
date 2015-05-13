@@ -1,57 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-        <meta charset="utf-8" />
-        <title>"Mairal et al. Online dictionary learning for sparse coding"</title>
-        <link rel="stylesheet" href="http://leohung.net/theme/css/main.css" />
-        <link href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="LeoHung.self() Atom Feed" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LeoHung.self(), ">
 
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+        <link rel="alternate"  href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" title="LeoHung.self() Full Atom Feed"/>
+
+        <title>"Mairal et al. Online dictionary learning for sparse coding" // LeoHung.self() // </title>
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://leohung.net/theme/css/pure.css">
+    <link rel="stylesheet" href="http://leohung.net/theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
 </head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="http://leohung.net/">LeoHung.self() </a></h1>
-                <nav><ul>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#publication">Publication</a></li>
-                    <li><a href="archives.html">Blog</a></li>
-                    <li><a href="http://leohung.net/pages/itakecare.html">"iTakeCare"</a></li>
-                    <li><a href="http://leohung.net/pages/magic-hand.html">"Magic Hand"</a></li>
-                    <li><a href="http://leohung.net/pages/metamorphicmessages.html">"metamorphicmessages"</a></li>
-                    <li><a href="http://leohung.net/pages/ohmytype.html">"Oh!MyType!"</a></li>
-                    <li><a href="http://leohung.net/pages/portfolio.html">"portfolio"</a></li>
-                    <li><a href="http://leohung.net/pages/social-power-analyzer-for-plurk.html">"Social Power Analyzer for Plurk"</a></li>
-                    <li><a href="http://leohung.net/pages/zuo-pin-ji.html">"作品集"</a></li>
-                    <li><a href="http://leohung.net/pages/san-chuan-leo-hung.html">"San-Chuan (Leo) Hung"</a></li>
-                    <li class="active"><a href="http://leohung.net/category/_posts.html">_posts</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="http://leohung.net/mairal-et-al-online-dictionary-learning-for-sparse-coding.html" rel="bookmark"
-           title="Permalink to "Mairal et al. Online dictionary learning for sparse coding"">"Mairal et al. Online dictionary learning for sparse coding"</a></h1>
-    </header>
-
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2013-09-08T00:35:00+02:00">
-                Published: Sun 08 September 2013
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="http://leohung.net/author/leohung.html">leohung</a>
-        </address>
-<p>In <a href="http://leohung.net/category/_posts.html">_posts</a>. </p>
-
-</footer><!-- /.post-info -->      <p>Mairal et al. Online dictionary learning for sparse coding. ICML 2009.  </p>
+<body>
+<div class="pure-g-r" id="layout">
+    <div class="sidebar sidebar-article pure-u">
+        <header class="header-article">
+            <hgroup>
+                <a href="http://leohung.net/author/leohung.html" title="See posts by leohung">
+                </a>
+                <h2 class="article-info">leohung</h2>
+                <small class="about-author"></small>
+                <h5>Published</h5>
+                <p>Sun 08 September 2013</p>
+                <a href="/">&larr;Home</a>
+            </hgroup>
+        </header>
+    </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1>"Mairal et al. Online dictionary learning for sparse coding"</h1>
+                        <p class="post-meta">
+                            // under                         </p>
+                </header>
+            </section>
+            <p>Mairal et al. Online dictionary learning for sparse coding. ICML 2009.  </p>
 <p>The following figures are all from this paper. </p>
 <p>The paper goal is to propose a online learning method to learn sparse coding dictionary, the basis set which can represent specific data through linear combination, for large scale data. </p>
 <h2>Algorithm</h2>
@@ -61,28 +58,39 @@
 <p>Their algorithm above for updating the dictionary uses block-coordinate descent. </p>
 <h2>My comment</h2>
 <p>The work is solid because they present not only the experiment result  but also the sophisticated theoretical proof showing the convergence of the online learning method; however, the assumption, the training set composed of i.i.d. samples of a distribution, may be suspicious because it is not alway satisfied in real world.   </p>
-    </div><!-- /.entry-content -->
+            <div class="hr"></div>
+            <a href="#" class="go-top">Go Top</a>
+<footer class="footer">
+    <p>&copy; LeoHung.self() &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>        </div>
+    </div>
+</div>
+    <script>
+        var $top = $('.go-top');
 
-  </article>
-</section>
-        <section id="extras" class="body">
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
 
-                            <li><a href="https://github.com/LeoHung">github</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
 </body>
 </html>
