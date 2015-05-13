@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>"PLSI & LDA"</title>
+        <link rel="stylesheet" href="http://leohung.net/theme/css/main.css" />
+        <link href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="LeoHung.self() Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://leohung.net/">LeoHung.self() </a></h1>
+                <nav><ul>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#publication">Publication</a></li>
+                    <li><a href="archives.html">Blog</a></li>
+                    <li><a href="http://leohung.net/pages/itakecare.html">"iTakeCare"</a></li>
+                    <li><a href="http://leohung.net/pages/magic-hand.html">"Magic Hand"</a></li>
+                    <li><a href="http://leohung.net/pages/metamorphicmessages.html">"metamorphicmessages"</a></li>
+                    <li><a href="http://leohung.net/pages/ohmytype.html">"Oh!MyType!"</a></li>
+                    <li><a href="http://leohung.net/pages/portfolio.html">"portfolio"</a></li>
+                    <li><a href="http://leohung.net/pages/social-power-analyzer-for-plurk.html">"Social Power Analyzer for Plurk"</a></li>
+                    <li><a href="http://leohung.net/pages/zuo-pin-ji.html">"作品集"</a></li>
+                    <li><a href="http://leohung.net/pages/san-chuan-leo-hung.html">"San-Chuan (Leo) Hung"</a></li>
+                    <li class="active"><a href="http://leohung.net/category/_posts.html">_posts</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://leohung.net/plsi-lda.html" rel="bookmark"
+           title="Permalink to "PLSI & LDA"">"PLSI &amp; LDA"</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-09-07T23:56:00+02:00">
+                Published: Sat 07 September 2013
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://leohung.net/author/leohung.html">leohung</a>
+        </address>
+<p>In <a href="http://leohung.net/category/_posts.html">_posts</a>. </p>
+
+</footer><!-- /.post-info -->      <p>PLSI &amp; LDA</p>
+<p>Origin source: "Probabilistic latent semantic indexing," T. Hofmann, SIGIR, 1999. "Latent Dirichlet allocation," D. Blei, A. Ng, and M. Jordan. . Journal of Machine Learning Research, 3:993–1022, January 2003 The following figures and formula are copied from above papers. </p>
+<p>PLSI and LDA are both hidden-class decomposition method ( or dimension reduction method ) but are different in modeling approaches; through mapping documents from high-dimension to low-dimension hidden class space, the ambiguous words relationship can be detected such that improve information retrieval precision. </p>
+<h2>PLSI</h2>
+<p>PLSI use the hidden-class decomposition technique PLSA, which is a generative probability model assuming a word in a specific document is generated as follows: (1) randomly pick a hidden-topic z for the document following P(z|d) (2) randomly pick a word w conditioning the topic z following P(w|z) (3) sum up all hidden topic result of generating word w. In other words, wordis relative to unobservable hidden-topic whose probability can not be calculated directly except an EM method, which compose with two steps: expectation step and maximization step. </p>
+<p>{% img center /images/ammai/04/Pdm.png %}</p>
+<p>In E step, calculate posterior probabilities given document and word as following formula. </p>
+<p>{% img center /images/ammai/04/EStep.png %}</p>
+<p>In M step, calculate prior probabilities. </p>
+<p>{% img center /images/ammai/04/MStep.png %}</p>
+<p>Besides, to avoid overfitting, the authors proposed TEM method, which adds a power coefficient $latex \beta $ to original EM formula as follows: </p>
+<p>{% img center /images/ammai/04/TEM.png %}</p>
+<h2>LDA</h2>
+<p>LDA is a graphical model approach to model words generation process.</p>
+<p>{% img center /images/ammai/04/LDA.png %}</p>
+<h2>Advantages</h2>
+<p>For PLSI, the formula in the M-step minimize word perplexity directly. For LDA, because LDA is a graphical model, LDA can be extended to more complex model.    </p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="https://github.com/LeoHung">github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

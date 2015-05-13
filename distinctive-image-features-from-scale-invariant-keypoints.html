@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>"Distinctive Image Features from Scale-Invariant Keypoints"</title>
+        <link rel="stylesheet" href="http://leohung.net/theme/css/main.css" />
+        <link href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="LeoHung.self() Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://leohung.net/">LeoHung.self() </a></h1>
+                <nav><ul>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#publication">Publication</a></li>
+                    <li><a href="archives.html">Blog</a></li>
+                    <li><a href="http://leohung.net/pages/itakecare.html">"iTakeCare"</a></li>
+                    <li><a href="http://leohung.net/pages/magic-hand.html">"Magic Hand"</a></li>
+                    <li><a href="http://leohung.net/pages/metamorphicmessages.html">"metamorphicmessages"</a></li>
+                    <li><a href="http://leohung.net/pages/ohmytype.html">"Oh!MyType!"</a></li>
+                    <li><a href="http://leohung.net/pages/portfolio.html">"portfolio"</a></li>
+                    <li><a href="http://leohung.net/pages/social-power-analyzer-for-plurk.html">"Social Power Analyzer for Plurk"</a></li>
+                    <li><a href="http://leohung.net/pages/zuo-pin-ji.html">"作品集"</a></li>
+                    <li><a href="http://leohung.net/pages/san-chuan-leo-hung.html">"San-Chuan (Leo) Hung"</a></li>
+                    <li class="active"><a href="http://leohung.net/category/_posts.html">_posts</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://leohung.net/distinctive-image-features-from-scale-invariant-keypoints.html" rel="bookmark"
+           title="Permalink to "Distinctive Image Features from Scale-Invariant Keypoints"">"Distinctive Image Features from Scale-Invariant Keypoints"</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-09-08T00:07:00+02:00">
+                Published: Sun 08 September 2013
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://leohung.net/author/leohung.html">leohung</a>
+        </address>
+<p>In <a href="http://leohung.net/category/_posts.html">_posts</a>. </p>
+
+</footer><!-- /.post-info -->      <p>"Distinctive Image Features from Scale-Invariant Keypoints," Lowe, IJCV, 2004   </p>
+<p><a href="http://mslab.csie.ntu.edu.tw/~askus/ammai/blog/wp-content/uploads/2012/03/螢幕快照-2012-03-13-下午11.11.08.png"> </a></p>
+<p>Paper author: David G. Lowe The following figures are all from this paper. </p>
+<h2>Novelties, contributions, assumption</h2>
+<p>This work introduce a set of promising affine invariant features, which can be used to identified specific object varied with background, illumination, rotation degree. </p>
+<h2>Questions and promising applications</h2>
+<p>Object Recognition by keypoints matching. </p>
+<h2>Technical Summarization</h2>
+<p>Scale Invariant Feature Transform (SIFT) contains two main part: finding keypoints and describing them. The process contains four steps: </p>
+<h3>Step 1</h3>
+<p>Scale-space extrema detection To find keypoints, the first thing is to detect scale-space extrema points, where are significant different from their neighbors. Koenderink (1984) and Lindeberg (1994) showed that the only possible scale-space kernel is the Gaussian function. Using the Gaussian function convolution on the image with varying scales, calculate the difference from the nearby two scales separated ny a constant factor k for finding the points whose difference is local maximum or minimum. </p>
+<p>{% img center /images/ammai/03/螢幕快照-2012-03-13-下午8.32.36.png %}</p>
+<p>{% img center /images/ammai/03/螢幕快照-2012-03-13-下午8.34.58.png %}</p>
+<p>Two reasons support this method: (a) it is a particularly efficient function to compute (b) In addition, the difference-of-Gaussian function provides a close approximation to the scale-normalized Laplacian of Gaussian, σ2∇2G, as studied by Lindeberg (1994)</p>
+<h3>Step 2. Keypoint localization</h3>
+<p>{% img center /images/ammai/03/螢幕快照-2012-03-13-下午8.40.52.png %}</p>
+<p>In order to detect the local maxima and minima of D(x, y, σ), each sample point is compared to its eight neighbors in the current image and nine neighbors in the scale above and below (see Figure 2)Three problem left: a. k=? b. σ=? c. How many octaves?After finding keypoints, the next problem is to accurate the keypoint localization and eliminate edge responses.</p>
+<h3>Step 3 Orientation assignment</h3>
+<p>{% img center /images/ammai/03/螢幕快照-2012-03-13-下午10.43.34.png %}</p>
+<p>Calculate the magnitude and the orientation of the gradient of keypoints. To make the descriptor is invariant to rotation, the orientation can be represented relative to the the dominant direction.</li> </p>
+<h3>Step 4 Keypoint descriptor</h3>
+<p>{% img center /images/ammai/03/螢幕快照-2012-03-13-下午11.11.08.png %}</p>
+<p>To describe the sample point, use m x m pixels within n x n blocks surrounding the point with k orientation bins. Sum up the orientations of m x m pixels to k bins weighted by magnitudes for each block. Therefore, one sample point would have n * n * k dimensions features vector to represent.The vector is normalized to unit length for the purpose that let the descriptor is invariant to the effects of illumination change, such as contrast, causing pixels value  multiplied with a constant factor.Besides, a non-linear illumination changes may be caused by 3D surfaces with differing orientations or  camera saturation. To cope with it, reduce the inﬂuence of large gradient magnitudes by thresholding the values in the unit feature vector to each be no larger than 0.2, and then renormalizing to unit length</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="https://github.com/LeoHung">github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

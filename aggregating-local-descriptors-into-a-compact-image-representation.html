@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>"Aggregating local descriptors into a compact image representation"</title>
+        <link rel="stylesheet" href="http://leohung.net/theme/css/main.css" />
+        <link href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="LeoHung.self() Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://leohung.net/">LeoHung.self() </a></h1>
+                <nav><ul>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#publication">Publication</a></li>
+                    <li><a href="archives.html">Blog</a></li>
+                    <li><a href="http://leohung.net/pages/itakecare.html">"iTakeCare"</a></li>
+                    <li><a href="http://leohung.net/pages/magic-hand.html">"Magic Hand"</a></li>
+                    <li><a href="http://leohung.net/pages/metamorphicmessages.html">"metamorphicmessages"</a></li>
+                    <li><a href="http://leohung.net/pages/ohmytype.html">"Oh!MyType!"</a></li>
+                    <li><a href="http://leohung.net/pages/portfolio.html">"portfolio"</a></li>
+                    <li><a href="http://leohung.net/pages/social-power-analyzer-for-plurk.html">"Social Power Analyzer for Plurk"</a></li>
+                    <li><a href="http://leohung.net/pages/zuo-pin-ji.html">"作品集"</a></li>
+                    <li><a href="http://leohung.net/pages/san-chuan-leo-hung.html">"San-Chuan (Leo) Hung"</a></li>
+                    <li class="active"><a href="http://leohung.net/category/_posts.html">_posts</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://leohung.net/aggregating-local-descriptors-into-a-compact-image-representation.html" rel="bookmark"
+           title="Permalink to "Aggregating local descriptors into a compact image representation"">"Aggregating local descriptors into a compact image representation"</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-09-08T00:28:00+02:00">
+                Published: Sun 08 September 2013
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://leohung.net/author/leohung.html">leohung</a>
+        </address>
+<p>In <a href="http://leohung.net/category/_posts.html">_posts</a>. </p>
+
+</footer><!-- /.post-info -->      <p>Herve Jegou, et al., Aggregating local descriptors into a compact image representation, Proc. IEEE CVPR'10<br />
+The goal of the work is reducing the computing time and the memory usage without lossing too much accuracy in image retrieval for large scale data. This work consists of two parts: VLAD and vector encoding. </p>
+<h2>VLAD</h2>
+<p>Inspired by Fisher kernel, they introduce VLAD(vector of locally aggregated descriptors) to represent) to represent an image. The VLAD is processed as follows. </p>
+<p>First, train a visual words codebook</p>
+<p>{% img center /images/ammai/03/c_set.gif %}</p>
+<p>by K-means, where $latex c_i $ means the i'th centroid, and $latex c_i$ is a dimension d sift vector. </p>
+<p>Second, for the sift vector of each image $latex x$, whose dimension = d, aggregate the difference between $latex x$ and its nearest centroid $latex c_i $ to generate $latex v_{i,j}$ as bellow, where i means the number of centroid and j means the number of the component of sift vector. $latex v's $  dimension $latex D = k * d$. </p>
+<p>Finally, the vector v is subsequently L2-normalized by $latex v := v/||v||^2 $. </p>
+<p>{% img center /images/ammai/03/vlad.png %}</p>
+<p>Approximating nearest neighbors </p>
+<h2>Indexation-aware dimensionality reduction</h2>
+<p>To make nearest neighbor search more efficiently by approximating, they proposed ADC approach, which quantize each sub-vector. They also find that VLAD is sparse and structured, which is appropriate for PCA to reduce dimensionality. To consider that PCA transformed vector's variance is not equal, it can employ Householder matrix to balance variance; besides, they find that random orthogonal matrix also performs well according to the experiment result. </p>
+<h2>My comment</h2>
+<p>The paper contribution is proposing VLAD to represent  image and using ADC approach and PCA to compress data.  The experiment shows that the VLAD they proposed performs better than "bag of features" method. This approach can make image retrieval more efficiently and more space economically.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="https://github.com/LeoHung">github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

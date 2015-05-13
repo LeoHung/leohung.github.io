@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>"Support vector learning for ordinal regression"</title>
+        <link rel="stylesheet" href="http://leohung.net/theme/css/main.css" />
+        <link href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="LeoHung.self() Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://leohung.net/">LeoHung.self() </a></h1>
+                <nav><ul>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#publication">Publication</a></li>
+                    <li><a href="archives.html">Blog</a></li>
+                    <li><a href="http://leohung.net/pages/itakecare.html">"iTakeCare"</a></li>
+                    <li><a href="http://leohung.net/pages/magic-hand.html">"Magic Hand"</a></li>
+                    <li><a href="http://leohung.net/pages/metamorphicmessages.html">"metamorphicmessages"</a></li>
+                    <li><a href="http://leohung.net/pages/ohmytype.html">"Oh!MyType!"</a></li>
+                    <li><a href="http://leohung.net/pages/portfolio.html">"portfolio"</a></li>
+                    <li><a href="http://leohung.net/pages/social-power-analyzer-for-plurk.html">"Social Power Analyzer for Plurk"</a></li>
+                    <li><a href="http://leohung.net/pages/zuo-pin-ji.html">"作品集"</a></li>
+                    <li><a href="http://leohung.net/pages/san-chuan-leo-hung.html">"San-Chuan (Leo) Hung"</a></li>
+                    <li class="active"><a href="http://leohung.net/category/_posts.html">_posts</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://leohung.net/support-vector-learning-for-ordinal-regression.html" rel="bookmark"
+           title="Permalink to "Support vector learning for ordinal regression"">"Support vector learning for ordinal regression"</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-09-07T23:43:00+02:00">
+                Published: Sat 07 September 2013
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://leohung.net/author/leohung.html">leohung</a>
+        </address>
+<p>In <a href="http://leohung.net/category/_posts.html">_posts</a>. </p>
+
+</footer><!-- /.post-info -->      <p>"Support vector learning for ordinal regression," R. Herbrich, T. Graepel, K. Obermayer, ICANN, 1999</p>
+<p>Authors: R. Herbrich, T. Graepel, K. Obermayer 
+The following figures are all copies from the paper.</p>
+<p>The classical supervised machine learning methods deal with classification problem and regression problem. Instead, this research proposed a method to deal with ordinal regression, predicting the order of samples, by reducing ordinal regression problem into a classification problem on pair of object. </p>
+<p>Assume input space X ={x1, x2,...xk }, and output space  Y = {y1, y2 ...yk} where exist a order that y1 &lt; y2 &lt; y3 ... &lt; yk. The ordinal regression problem is to find a model h mapping from X to Y such that minimize the loss function, which panelize wrong order mappings. </p>
+<p>To transfer it into classification problem, define a function p = p( h(x_1), h(x_2) ) ={-1, 0 ,+1} which means the classes of order: &lt; , = , or &gt;. Then, the classification problem can be transformed to find a model h that mapping from (h(x_1), h(x_2) ) to ( y_1, y_2) to minimize the loss function which is related to whether p(h(x_1),h(x_2)) is as same as p(y_1,y_2). </p>
+<p>After transformation, it can be solved by support vector machine. The experiment compared ordinal regression with multi-class SVM and support vector regression(SVR). The result showed that ordinal regression is better than others. </p>
+<p>{% img center /images/ammai/05/r_measure.png %}</p>
+<p>Furthermore, the research experimented on a IR problem, and it shows that ordinal regression performed better. </p>
+<p>{% img center /images/ammai/05/IR_result.png %}</p>
+<h2>My Opinion</h2>
+<p>According to the authors said, these work introduced a new problem in machine learning filed, and they proposed a novel and simple method to deal with ordinal regression problem. However, due to reducing process using combination of instance, I think that it will become become a big problem when the dataset grossing. When the number of instance gross  to n, the number of combination gross to O(n^2), which is hard to compute if n is large.  </p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="https://github.com/LeoHung">github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

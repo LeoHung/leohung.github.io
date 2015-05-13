@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>"Nonlinear dimensionality reduction by locally linear embedding"</title>
+        <link rel="stylesheet" href="http://leohung.net/theme/css/main.css" />
+        <link href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="LeoHung.self() Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://leohung.net/">LeoHung.self() </a></h1>
+                <nav><ul>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#publication">Publication</a></li>
+                    <li><a href="archives.html">Blog</a></li>
+                    <li><a href="http://leohung.net/pages/itakecare.html">"iTakeCare"</a></li>
+                    <li><a href="http://leohung.net/pages/magic-hand.html">"Magic Hand"</a></li>
+                    <li><a href="http://leohung.net/pages/metamorphicmessages.html">"metamorphicmessages"</a></li>
+                    <li><a href="http://leohung.net/pages/ohmytype.html">"Oh!MyType!"</a></li>
+                    <li><a href="http://leohung.net/pages/portfolio.html">"portfolio"</a></li>
+                    <li><a href="http://leohung.net/pages/social-power-analyzer-for-plurk.html">"Social Power Analyzer for Plurk"</a></li>
+                    <li><a href="http://leohung.net/pages/zuo-pin-ji.html">"作品集"</a></li>
+                    <li><a href="http://leohung.net/pages/san-chuan-leo-hung.html">"San-Chuan (Leo) Hung"</a></li>
+                    <li class="active"><a href="http://leohung.net/category/_posts.html">_posts</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://leohung.net/nonlinear-dimensionality-reduction-by-locally-linear-embedding.html" rel="bookmark"
+           title="Permalink to "Nonlinear dimensionality reduction by locally linear embedding"">"Nonlinear dimensionality reduction by locally linear embedding"</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-09-07T23:49:00+02:00">
+                Published: Sat 07 September 2013
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://leohung.net/author/leohung.html">leohung</a>
+        </address>
+<p>In <a href="http://leohung.net/category/_posts.html">_posts</a>. </p>
+
+</footer><!-- /.post-info -->      <p>"Nonlinear dimensionality reduction by locally linear embedding," Roweis &amp; Saul, Science, 2000. </p>
+<p>The following figures are all copied from the essay. </p>
+<p>{% img center /images/ammai/04/nonlinear-dimension-reduction.png %}</p>
+<p>The main purpose of this method is to reduce the data from high dimensions to low dimensions while maintaining instances local relative distances at the same time. There are three main steps: (1) selecting k neighbors (2) calculate contribution weights $latex W_{ij} $ (3) reducing dimensions. The algorithm can be used for not only text corpus, but also images. </p>
+<p>First, select the k nearest neighbors for each instance, where "k" is a parameter,  and distances between between neighbors will be maintain. </p>
+<p>Second, calculate the weights  $latex W_{ij} $,  the contribution of $latex j$ to $latex i$ , between the selected instance $latex i $ and its neighbors $latex j $ by minimizing the following cost function with two constraints: (1) $latex X_j $ are the neighbors of $latex X_i $. (2) </p>
+<p>{% img center /images/ammai/04/constraint2.gif %}</p>
+<p>{% img center /images/ammai/04/cost-function-1.png %}</p>
+<p>Third, with the following cost function fixing $latex W_{ij}$ , transform instances from high-dimension X to low-dimension Y, which can be seen as a eigenvalue problem. </p>
+<p>{% img center /images/ammai/04/cost-function-2.png %}</p>
+<h2>Advantages</h2>
+<p>(1) Invariant Due to the cost function is a sum function, for image processing, it will be not sensitive to geometric transformation. 
+(2) Small amount of parameters The method use small amount of parameters, only k for selecting neighbors. ##</p>
+<h2>Disadvantages</h2>
+<p>If selecting neighbors with brute force comparison, it will consume much of time when data size raising. May be it can be solved by locality sensitive hash method to find nearest neighbors efficiently.   </p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="https://github.com/LeoHung">github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

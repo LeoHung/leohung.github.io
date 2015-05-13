@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>"Efficient visual search of videos cast as text retrieval"</title>
+        <link rel="stylesheet" href="http://leohung.net/theme/css/main.css" />
+        <link href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="LeoHung.self() Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://leohung.net/">LeoHung.self() </a></h1>
+                <nav><ul>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#publication">Publication</a></li>
+                    <li><a href="archives.html">Blog</a></li>
+                    <li><a href="http://leohung.net/pages/itakecare.html">"iTakeCare"</a></li>
+                    <li><a href="http://leohung.net/pages/magic-hand.html">"Magic Hand"</a></li>
+                    <li><a href="http://leohung.net/pages/metamorphicmessages.html">"metamorphicmessages"</a></li>
+                    <li><a href="http://leohung.net/pages/ohmytype.html">"Oh!MyType!"</a></li>
+                    <li><a href="http://leohung.net/pages/portfolio.html">"portfolio"</a></li>
+                    <li><a href="http://leohung.net/pages/social-power-analyzer-for-plurk.html">"Social Power Analyzer for Plurk"</a></li>
+                    <li><a href="http://leohung.net/pages/zuo-pin-ji.html">"作品集"</a></li>
+                    <li><a href="http://leohung.net/pages/san-chuan-leo-hung.html">"San-Chuan (Leo) Hung"</a></li>
+                    <li class="active"><a href="http://leohung.net/category/_posts.html">_posts</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://leohung.net/efficient-visual-search-of-videos-cast-as-text-retrieval.html" rel="bookmark"
+           title="Permalink to "Efficient visual search of videos cast as text retrieval"">"Efficient visual search of videos cast as text retrieval"</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-09-08T00:23:00+02:00">
+                Published: Sun 08 September 2013
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://leohung.net/author/leohung.html">leohung</a>
+        </address>
+<p>In <a href="http://leohung.net/category/_posts.html">_posts</a>. </p>
+
+</footer><!-- /.post-info -->      <p>"Efficient visual search of videos cast as text retrieval," J. Sivic, and A. Zisserman, IEEE TPAMI, 2009  <br />
+Paper Authors: Josef Sivic and Andrew Zisserman The following figures are all from this paper. </p>
+<p>{% img center /images/ammai/03/outline.png %}</p>
+<p>J. Sivic, and A. Zisserman proposed this method which analogizes searching in video to in text corpora: representing a visual region as a visual word such that it can employ text retrieval methods like inverted index, tf-idf...etc. The diagram not only performs well but also saves time efficiently. The system flowchart shows as above. </p>
+<h2>Visual words</h2>
+<p>The first thing to do is to convert image regions into visual words, which are symbols can represent key image regions like word terms' effect in articles. To do so, use two affine covariant regions detecting method: Shape Adapted (SA) and Maximally Stable (MS)  to find significant regions, describe them with SIFT descriptors, cluster descriptor vectors with K-means using Mahalanbis distance as below, and transfer vectors into "visual words" according to the clustering result. Visual words not only can be represent image regions but also makes image retrieval more efficiently through inverted index method. </p>
+<p>{% img center /images/ammai/03/Mahalanobis-distance.png %}</p>
+<h2>tf-idf weighted and Stop list</h2>
+<p>Borrowing the concept of tf-idf in text retrieval, the query vectors and retrieved frame vectors are weighted by the inverse document. And for the most frequent visual words in all most all image are suppressed, just like what Stop word list effects. </p>
+<h2>Spatial consistency</h2>
+<p>It is a accurate match not only hit one point but also the points surrounding the point are matched. Each region which also matches within the search areas, defined by the 15 nearest spatial neighbours of each match, casts a vote for that frame. Matches with no support are rejected. The ﬁnal relevance score of the frame is determined by summing the spatial consistency votes, and adding the frequency score $latex sim( v_q , v_d ) $, the consine similarity between $latex v_q$ and $latex v_d$. </p>
+<h2>My comment</h2>
+<p>This work shows how cross-fields research can be possible and why it may be more useful: the well-developed techniques in other filed can be applied if we analogizes the problem to the other appropriately. However, there are still data specific attributes, just like spatial consistence, which should be processed more sophisticatedly. .   </p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="https://github.com/LeoHung">github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
