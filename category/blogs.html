@@ -53,6 +53,25 @@ Posts in 'blogs'                </h1>
     <header class="post-header">
         <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
         </a>
+        <h3><a class="post-title" href="http://leohung.net/fen-bu-shi-ju-liang-ji-jie-xue-xi-xi-tong-mo-xing-mapreduce-data-graph-parameter-server.html">分布式巨量機械學習系統模型: MapReduce, Data Graph, Parameter Server</a></h3>
+            <p class="post-meta"><h2>總結</h2>
+<p>巨量機械學習處理的挑戰有二：(1) 訓練資料集過大 (2) 機械學習模型本身過於複雜，所需要訓練的參數過多。這兩個原因使得無法使用單一主機解決巨量機械學習的問題。本篇比較簡述了目前主要的巨量機械學習系統的三種典範：MapReduce, Data Graph, 和 Parameter Server.</p>
+<h2>為什麼我們需要分布式系統處理巨量機械學習？</h2>
+<p>"巨量"有兩種意義：(1) 訓練資料集過大 (2) 模型本身過度複雜，所需訓練的參數過多。因為這兩個原因，通常無法使用單一機器處理巨量機械學習的問題。為此，開發者得需要設計分布式系統，或者建立在已有的分布式計算框架來處理。</p>
+<h2>MapReduce 模式</h2>
+<p><center>
+<img alt="mapreduce" src="/images/bigml/mapreduce.png" /></p>
+<h4>圖片 1. MapReduce  (資料來源: [9])</h4>
+<p></center></p>
+<p>MapReduce [9] 是很熱門的分布式計算框架, 而 Apache Hadoop [10] 則是對應的開源系統. 一般來說，MapReduce 有兩個階段：Map 和 Reduce。在 ...</p></p>
+            <p class="post-meta">
+                in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Wed 13 May 2015
+            </p>
+    </header>
+</section><section class="post">
+    <header class="post-header">
+        <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
+        </a>
         <h3><a class="post-title" href="http://leohung.net/large-scale-distributed-machine-learning-mapreduce-data-graph-and-parameter-server.html">Large-scale Distributed Machine Learning: MapReduce, Data Graph, and Parameter Server</a></h3>
             <p class="post-meta"><h2>Summary</h2>
 <p>Big machine learning is hard because (1) the amount of traning data is huge (2) the number of parameters is large. This note summarizes three paradigms of distributed architecture for large-scale machine learning problem: MapReduce, Data Graph, and Parameter Server.</p>
@@ -160,19 +179,6 @@ Paper Authors: Josef Sivic and Andrew Zisserman The following figures are all fr
             <p class="post-meta"><p>PLSI &amp; LDA</p>
 <p>Origin source: "Probabilistic latent semantic indexing," T. Hofmann, SIGIR, 1999. "Latent Dirichlet allocation," D. Blei, A. Ng, and M. Jordan. . Journal of Machine Learning Research, 3:993–1022, January 2003 The following figures and formula are copied from above papers.</p>
 <p>PLSI and LDA are both hidden-class decomposition method ...</p></p>
-            <p class="post-meta">
-                in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Sat 07 September 2013
-            </p>
-    </header>
-</section><section class="post">
-    <header class="post-header">
-        <a href="http://leohung.net/author/leohung.html" title="See posts by leohung">
-        </a>
-        <h3><a class="post-title" href="http://leohung.net/nonlinear-dimensionality-reduction-by-locally-linear-embedding.html">"Nonlinear dimensionality reduction by locally linear embedding"</a></h3>
-            <p class="post-meta"><p>"Nonlinear dimensionality reduction by locally linear embedding," Roweis &amp; Saul, Science, 2000.</p>
-<p>The following figures are all copied from the essay.</p>
-<p><img alt="nonlinear-dimension-reduction" src="/images/ammai/04/nonlinear-dimension-reduction.png" /></p>
-<p>The main purpose of this method is to reduce the data from high dimensions to low dimensions while maintaining instances local relative distances at the same time. There are three ...</p></p>
             <p class="post-meta">
                 in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Sat 07 September 2013
             </p>
