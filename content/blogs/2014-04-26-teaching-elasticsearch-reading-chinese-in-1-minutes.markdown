@@ -3,7 +3,8 @@ layout: post
 title: "Teaching Elasticsearch reading Chinese in 1 Minutes "
 date: 2014-04-26 19:07
 comments: true
-categories: Elasticsearch, Chinese, Analyzer
+Tags: Elasticsearch, Chinese, Analyzer
+Author: Leo Hung
 ---
 # Teaching Elasticsearch reading Chinese in 1 Minutes
 

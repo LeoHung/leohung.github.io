@@ -8,7 +8,7 @@ footer: false
 save_as: index.html
 ---
 
-  I'm San-Chuan "Leo" Hung(洪三權), studying in Carnegie Mellon University, specifying in Computation Data Science (a.k.a MCDS and VLIS), grduating in December 2015.
+  I'm San-Chuan "Leo" Hung(洪三權), studying in Carnegie Mellon University, specifying in Computational Data Science (a.k.a MCDS and VLIS), grduating in December 2015.
 
   contact: c2016.tw at gmail.com
 
