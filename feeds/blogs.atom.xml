@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>LeoHung.self()</title><link href="http://leohung.net/" rel="alternate"></link><link href="http://leohung.net/feeds/blogs.atom.xml" rel="self"></link><id>http://leohung.net/</id><updated>2015-05-13T01:30:00+02:00</updated><entry><title>分布式巨量機械學習系統模型: MapReduce, Data Graph, Parameter Server</title><link href="http://leohung.net/fen-bu-shi-ju-liang-ji-jie-xue-xi-xi-tong-mo-xing-mapreduce-data-graph-parameter-server.html" rel="alternate"></link><updated>2015-05-13T01:30:00+02:00</updated><author><name>Leo Hung</name></author><id>tag:leohung.net,2015-05-13:fen-bu-shi-ju-liang-ji-jie-xue-xi-xi-tong-mo-xing-mapreduce-data-graph-parameter-server.html</id><summary type="html">&lt;h2&gt;總結&lt;/h2&gt;
-&lt;p&gt;巨量機械學習需要處理的挑戰有二：(1) 訓練資料集過大 (2) 機械學習模型本身過於複雜，所需要訓練的參數過多。這兩個原因使得無法使用單一主機解決巨量機械學習的問題。本篇比較簡述了目前主要的巨量機械學習系統的三種典範：MapReduce, Data Graph, 和 Parameter Server.&lt;/p&gt;
+&lt;p&gt;巨量機械學習需要處理的挑戰有二：(1) 訓練資料集過大 (2) 機械學習模型本身過於複雜，所需要訓練的參數過多。這兩個原因使得無法使用單一主機解決巨量機械學習的問題。為此，許多團隊於近幾年提出分布式機械學習系統，好著手處理巨量資料的挑戰。本篇整理了目前分布式巨量機械學習系統的三種典範：MapReduce, Data Graph, 和 Parameter Server.&lt;/p&gt;
 &lt;h2&gt;為什麼我們需要分布式系統處理巨量機械學習？&lt;/h2&gt;
 &lt;p&gt;"巨量"有兩種意義：(1) 訓練資料集過大 (2) 模型本身過度複雜，所需訓練的參數過多。因為這兩個原因，通常無法使用單一機器處理巨量機械學習的問題。為此，開發者得需要設計分布式系統，或者建立在已有的分布式計算框架來處理。&lt;/p&gt;
 &lt;h2&gt;MapReduce 模式&lt;/h2&gt;
