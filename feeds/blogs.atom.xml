@@ -19,7 +19,7 @@
 &lt;p&gt;Spark 部署的腳本也有提供將機群設定為 spot instance 的參數，但僅限於 worker。driver則是一定會設定成 on-demand instance。&lt;/p&gt;
 &lt;p&gt;對於經費經常不足的研究者來說，時常只能在有限的預算之內掙扎，使用風險是可以承受的，實驗被砍了大不了重跑就算了。&lt;/p&gt;
 &lt;p&gt;為此，我修改了 spark_ec2.py ，延伸把 driver 也設定成 spot instance 的參數。&lt;/p&gt;
-&lt;p&gt;請參考：https://github.com/LeoHung/cheaper-ec2-spark-deploy&lt;/p&gt;
+&lt;p&gt;請參考：&lt;a href="https://github.com/LeoHung/cheaper-ec2-spark-deploy"&gt;https://github.com/LeoHung/cheaper-ec2-spark-deploy&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;只要將 "--master-spot-price=$MASTER_SPOT_PRICE" 設定好，就會將 driver 也設定為便宜的 spot instance。以我自己的經驗，原本我已經把 worker 都設定成了 spot instance，如果再把 driver 也設定為 spot instance，可以將總價格再壓縮到原本的70% ~50%，相當經濟實惠。&lt;/p&gt;</summary><category term="spark"></category><category term="parameter"></category></entry><entry><title>Easy to read ML papers and blogs</title><link href="http://leohung.net/easy-to-read-ml-papers-and-blogs.html" rel="alternate"></link><updated>2015-11-24T01:30:00+01:00</updated><author><name>Leo Hung</name></author><id>tag:leohung.net,2015-11-24:easy-to-read-ml-papers-and-blogs.html</id><summary type="html">&lt;h1&gt;EM&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;从最大似然到EM算法浅解. &lt;a href="http://blog.csdn.net/zouxy09/article/details/8537620"&gt;link&lt;/a&gt;&lt;/li&gt;
