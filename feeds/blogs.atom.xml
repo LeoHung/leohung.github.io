@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>LeoHung.self()</title><link href="http://leohung.net/" rel="alternate"></link><link href="http://leohung.net/feeds/blogs.atom.xml" rel="self"></link><id>http://leohung.net/</id><updated>2015-11-24T01:30:00+01:00</updated><entry><title>Easy to read ML papers and blogs</title><link href="http://leohung.net/easy-to-read-ml-papers-and-blogs.html" rel="alternate"></link><updated>2015-11-24T01:30:00+01:00</updated><author><name>Leo Hung</name></author><id>tag:leohung.net,2015-11-24:easy-to-read-ml-papers-and-blogs.html</id><summary type="html">&lt;h1&gt;EM&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>LeoHung.self()</title><link href="http://leohung.net/" rel="alternate"></link><link href="http://leohung.net/feeds/blogs.atom.xml" rel="self"></link><id>http://leohung.net/</id><updated>2015-12-14T01:30:00+01:00</updated><entry><title>Apache Spark 環境變數調整</title><link href="http://leohung.net/apache-spark-huan-jing-bian-shu-diao-zheng.html" rel="alternate"></link><updated>2015-12-14T01:30:00+01:00</updated><author><name>Leo Hung</name></author><id>tag:leohung.net,2015-12-14:apache-spark-huan-jing-bian-shu-diao-zheng.html</id><summary type="html">&lt;p&gt;目前使用 Apache Spark 的心得是，Spark真的很棒，處理計算時間快得沒話說。但是他許多預設的參數，值得再做更多進一步的調整。這篇整理了我這一學期做實驗的操作心得：哪些環境變數該調，又該怎麼調。如果你有不同的見解或其他推薦的參數和調整方向，還請忘不吝惜指教批評。&lt;/p&gt;
+&lt;h2&gt;怎麼改&lt;/h2&gt;
+&lt;p&gt;可以透過修改 $spark_dir/conf/spark-defaults.conf 達成。&lt;/p&gt;
+&lt;h2&gt;spark.serializer&lt;/h2&gt;
+&lt;p&gt;Spark 預設使用 Java 的 ObjectOutputStream framework 處理物件的序列化(serialize)。不過官網建議使用另一套 KryoSerializer，效能處理的速度會比較快。&lt;/p&gt;
+&lt;p&gt;spark.serializer                 org.apache.spark.serializer.KryoSerializer&lt;/p&gt;
+&lt;h2&gt;spark.driver.memory&lt;/h2&gt;
+&lt;p&gt;Spark 的 driver 所先佔有的記憶體其實很少，如果有用到 collectAsMap ，driver會把分散在各個 worker 的資料蒐集回 driver 形成物件。如果 driver 記憶體不夠大，collectAsMap又形成過大的物件，會導致記憶體不足 (out of memory) 的錯誤，造成整個工作失敗。&lt;/p&gt;
+&lt;p&gt;e.g.
+  spark.driver.memory              55047m&lt;/p&gt;
+&lt;h2&gt;spark.locality.wait&lt;/h2&gt;
+&lt;p&gt;Spark 的 worker 處理任務的時候，會優先處理同一台機器上的任務。如果有 worker 忙不過來，且又有 worker 又處於空閑狀態，他就會搜羅別台 worker 的任務來做，來幫其他worker做外包。&lt;/p&gt;
+&lt;p&gt;但是有些任務不適合外包，因為他原本所預定處理的數據量太大，一外包任務就還得傳輸這些數據，反而增加處理時間。還不如等一下，讓那個原本忙不過來的 worker 來處理自身的任務還比較快。&lt;/p&gt;
+&lt;p&gt;spark.locality.wait 這個參數定義要等多久，才會把一個任務外包給其他的worker。如果設定很大的數值，就幾乎強迫是由同一台 worker 處理他自己的任務。&lt;/p&gt;
+&lt;p&gt;e.g.
+  spark.locality.wait              3000000&lt;/p&gt;</summary><category term="spark"></category><category term="parameter"></category></entry><entry><title>Easy to read ML papers and blogs</title><link href="http://leohung.net/easy-to-read-ml-papers-and-blogs.html" rel="alternate"></link><updated>2015-11-24T01:30:00+01:00</updated><author><name>Leo Hung</name></author><id>tag:leohung.net,2015-11-24:easy-to-read-ml-papers-and-blogs.html</id><summary type="html">&lt;h1&gt;EM&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;从最大似然到EM算法浅解. &lt;a href="http://blog.csdn.net/zouxy09/article/details/8537620"&gt;link&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;（EM算法）The EM Algorithm. &lt;a href="http://www.cnblogs.com/jerrylead/archive/2011/04/06/2006936.html"&gt;link&lt;/a&gt;&lt;/li&gt;

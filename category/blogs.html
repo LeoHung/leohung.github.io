@@ -56,6 +56,23 @@ Posts in 'blogs'                </h1>
     <header class="post-header">
         <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
         </a>
+        <h3><a class="post-title" href="http://leohung.net/apache-spark-huan-jing-bian-shu-diao-zheng.html">Apache Spark 環境變數調整</a></h3>
+            <p class="post-meta"><p>目前使用 Apache Spark 的心得是，Spark真的很棒，處理計算時間快得沒話說。但是他許多預設的參數，值得再做更多進一步的調整。這篇整理了我這一學期做實驗的操作心得：哪些環境變數該調，又該怎麼調。如果你有不同的見解或其他推薦的參數和調整方向，還請忘不吝惜指教批評。</p>
+<h2>怎麼改</h2>
+<p>可以透過修改 $spark_dir/conf/spark-defaults.conf 達成。</p>
+<h2>spark.serializer</h2>
+<p>Spark 預設使用 Java 的 ObjectOutputStream framework 處理物件的序列化(serialize)。不過官網建議使用另一套 KryoSerializer，效能處理的速度會比較快。</p>
+<p>spark.serializer                 org.apache.spark.serializer.KryoSerializer</p>
+<h2>spark.driver.memory</h2>
+<p>Spark 的 driver 所先佔有的記憶體其實很少，如果有用到 collectAsMap ，driver會把分散在各個 ...</p></p>
+            <p class="post-meta">
+                in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Mon 14 December 2015
+            </p>
+    </header>
+</section><section class="post">
+    <header class="post-header">
+        <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
+        </a>
         <h3><a class="post-title" href="http://leohung.net/easy-to-read-ml-papers-and-blogs.html">Easy to read ML papers and blogs</a></h3>
             <p class="post-meta"><h1>EM</h1>
 <ul>
@@ -174,21 +191,6 @@ The goal of the work is reducing the computing time and the memory usage without
 Paper Authors: Josef Sivic and Andrew Zisserman The following figures are all from this paper.</p>
 <p><img alt="outline" src="/images/ammai/03/outline.png" /></p>
 <p>J. Sivic, and A. Zisserman proposed this method which analogizes searching in video to in text corpora: representing ...</p></p>
-            <p class="post-meta">
-                in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Sun 08 September 2013
-            </p>
-    </header>
-</section><section class="post">
-    <header class="post-header">
-        <a href="http://leohung.net/author/leohung.html" title="See posts by leohung">
-        </a>
-        <h3><a class="post-title" href="http://leohung.net/distinctive-image-features-from-scale-invariant-keypoints.html">"Distinctive Image Features from Scale-Invariant Keypoints"</a></h3>
-            <p class="post-meta"><p>"Distinctive Image Features from Scale-Invariant Keypoints," Lowe, IJCV, 2004</p>
-<p><a href="http://mslab.csie.ntu.edu.tw/~askus/ammai/blog/wp-content/uploads/2012/03/螢幕快照-2012-03-13-下午11.11.08.png"> </a></p>
-<p>Paper author: David G. Lowe The following figures are all from this paper.</p>
-<h2>Novelties, contributions, assumption</h2>
-<p>This work introduce a set of promising affine invariant features, which can be used to identified specific object varied with background, illumination, rotation degree.</p>
-<h2>Questions ...</h2></p>
             <p class="post-meta">
                 in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Sun 08 September 2013
             </p>

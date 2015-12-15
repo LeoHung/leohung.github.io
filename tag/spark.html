@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LeoHung.self(), ">
+
+        <link rel="alternate"  href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" title="LeoHung.self() Full Atom Feed"/>
+
+        <title>spark tag // LeoHung.self() // </title>
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://leohung.net/theme/css/pure.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="pure-g-r" id="layout">
+<div class="sidebar pure-u">
+    <div class="cover-img" style="background-image: url('/images/cover.jpg')">
+        <div class="cover-body">
+            <header class="header">
+                <hgroup>
+                    <h1 class="brand-main"><a href="/">LeoHung.self()</a></h1>
+                    <p class="tagline"></p>
+                    <ul>
+                    <li class="links"><a href="http://leohung.net/#education">Education</a></li>
+                    <li class="links"><a href="http://leohung.net/#experience">Experience</a></li>
+                    <li class="links"><a href="http://leohung.net/#projects">Projects</a></li>
+                    <li class="links"><a href="http://leohung.net/#skills">Skills</a></li>
+                    <li class="links"><a href="http://leohung.net/#publication">Publication</a></li>
+                    <li class="links"><a href="http://leohung.net/archives.html">Blog</a></li>
+                    </ul>
+                    <p class="social">
+                        <a href="https://github.com/LeoHung">
+                            <i class="fa fa-github fa-3x"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sanchuanhung">
+                            <i class="fa fa-linkedin fa-3x"></i>
+                        </a>
+                    <p>
+                </hgroup>
+            </header>
+        </div>
+    </div>
+</div>    <div class="pure-u-1">
+        <div class="content">
+            <!-- A wrapper for all the blog posts -->
+            <div class="posts">
+                <h1 class="content-subhead">
+Posts tagged 'spark'                </h1>
+<section class="post">
+    <header class="post-header">
+        <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
+        </a>
+        <h3><a class="post-title" href="http://leohung.net/apache-spark-huan-jing-bian-shu-diao-zheng.html">Apache Spark 環境變數調整</a></h3>
+            <p class="post-meta"><p>目前使用 Apache Spark 的心得是，Spark真的很棒，處理計算時間快得沒話說。但是他許多預設的參數，值得再做更多進一步的調整。這篇整理了我這一學期做實驗的操作心得：哪些環境變數該調，又該怎麼調。如果你有不同的見解或其他推薦的參數和調整方向，還請忘不吝惜指教批評。</p>
+<h2>怎麼改</h2>
+<p>可以透過修改 $spark_dir/conf/spark-defaults.conf 達成。</p>
+<h2>spark.serializer</h2>
+<p>Spark 預設使用 Java 的 ObjectOutputStream framework 處理物件的序列化(serialize)。不過官網建議使用另一套 KryoSerializer，效能處理的速度會比較快。</p>
+<p>spark.serializer                 org.apache.spark.serializer.KryoSerializer</p>
+<h2>spark.driver.memory</h2>
+<p>Spark 的 driver 所先佔有的記憶體其實很少，如果有用到 collectAsMap ，driver會把分散在各個 ...</p></p>
+            <p class="post-meta">
+                in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Mon 14 December 2015
+            </p>
+    </header>
+</section><div class="pagination-wrapper content-subhead">
+    <div class="pagination">
+        <div class="pagination-left">
+                &nbsp;
+        </div>
+        <span>Page 1 / 1</span>
+        <div class="pagination-right">
+        </div>
+    </div>
+</div><footer class="footer">
+    <p>&copy; LeoHung.self() &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

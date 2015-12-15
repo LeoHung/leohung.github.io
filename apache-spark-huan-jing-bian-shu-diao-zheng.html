@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LeoHung.self(), ">
+
+        <link rel="alternate"  href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" title="LeoHung.self() Full Atom Feed"/>
+
+        <title>Apache Spark 環境變數調整 // LeoHung.self() // </title>
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://leohung.net/theme/css/pure.css">
+    <link rel="stylesheet" href="http://leohung.net/theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
+</head>
+
+<body>
+<div class="pure-g-r" id="layout">
+    <div class="sidebar sidebar-article pure-u">
+        <header class="header-article">
+            <hgroup>
+                <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
+                </a>
+                <h2 class="article-info">Leo Hung</h2>
+                <small class="about-author"></small>
+                <h5>Published</h5>
+                <p>Mon 14 December 2015</p>
+                <a href="/">&larr;Home</a>
+            </hgroup>
+        </header>
+    </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1>Apache Spark 環境變數調整</h1>
+                        <p class="post-meta">
+                            // under                                 <a class="post-category" href="http://leohung.net/tag/spark.html">spark</a>
+                                <a class="post-category" href="http://leohung.net/tag/parameter.html">parameter</a>
+                        </p>
+                </header>
+            </section>
+            <p>目前使用 Apache Spark 的心得是，Spark真的很棒，處理計算時間快得沒話說。但是他許多預設的參數，值得再做更多進一步的調整。這篇整理了我這一學期做實驗的操作心得：哪些環境變數該調，又該怎麼調。如果你有不同的見解或其他推薦的參數和調整方向，還請忘不吝惜指教批評。</p>
+<h2>怎麼改</h2>
+<p>可以透過修改 $spark_dir/conf/spark-defaults.conf 達成。</p>
+<h2>spark.serializer</h2>
+<p>Spark 預設使用 Java 的 ObjectOutputStream framework 處理物件的序列化(serialize)。不過官網建議使用另一套 KryoSerializer，效能處理的速度會比較快。</p>
+<p>spark.serializer                 org.apache.spark.serializer.KryoSerializer</p>
+<h2>spark.driver.memory</h2>
+<p>Spark 的 driver 所先佔有的記憶體其實很少，如果有用到 collectAsMap ，driver會把分散在各個 worker 的資料蒐集回 driver 形成物件。如果 driver 記憶體不夠大，collectAsMap又形成過大的物件，會導致記憶體不足 (out of memory) 的錯誤，造成整個工作失敗。</p>
+<p>e.g.
+  spark.driver.memory              55047m</p>
+<h2>spark.locality.wait</h2>
+<p>Spark 的 worker 處理任務的時候，會優先處理同一台機器上的任務。如果有 worker 忙不過來，且又有 worker 又處於空閑狀態，他就會搜羅別台 worker 的任務來做，來幫其他worker做外包。</p>
+<p>但是有些任務不適合外包，因為他原本所預定處理的數據量太大，一外包任務就還得傳輸這些數據，反而增加處理時間。還不如等一下，讓那個原本忙不過來的 worker 來處理自身的任務還比較快。</p>
+<p>spark.locality.wait 這個參數定義要等多久，才會把一個任務外包給其他的worker。如果設定很大的數值，就幾乎強迫是由同一台 worker 處理他自己的任務。</p>
+<p>e.g.
+  spark.locality.wait              3000000</p>
+            <div class="hr"></div>
+            <a href="#" class="go-top">Go Top</a>
+<footer class="footer">
+    <p>&copy; LeoHung.self() &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>        </div>
+    </div>
+</div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>
