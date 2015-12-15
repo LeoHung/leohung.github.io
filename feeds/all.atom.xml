@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>LeoHung.self()</title><link href="http://leohung.net/" rel="alternate"></link><link href="http://leohung.net/feeds/all.atom.xml" rel="self"></link><id>http://leohung.net/</id><updated>2015-12-14T01:30:00+01:00</updated><entry><title>Apache Spark 環境變數調整</title><link href="http://leohung.net/apache-spark-huan-jing-bian-shu-diao-zheng.html" rel="alternate"></link><updated>2015-12-14T01:30:00+01:00</updated><author><name>Leo Hung</name></author><id>tag:leohung.net,2015-12-14:apache-spark-huan-jing-bian-shu-diao-zheng.html</id><summary type="html">&lt;p&gt;目前使用 Apache Spark 的心得是，Spark真的很棒，處理計算時間快得沒話說。但是他許多預設的參數，值得再做更多進一步的調整。這篇整理了我這一學期做實驗的操作心得：哪些環境變數該調，又該怎麼調。如果你有不同的見解或其他推薦的參數和調整方向，還請忘不吝惜指教批評。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>LeoHung.self()</title><link href="http://leohung.net/" rel="alternate"></link><link href="http://leohung.net/feeds/all.atom.xml" rel="self"></link><id>http://leohung.net/</id><updated>2015-12-14T01:30:00+01:00</updated><entry><title>Apache Spark 環境變數調整</title><link href="http://leohung.net/apache-spark-huan-jing-bian-shu-diao-zheng.html" rel="alternate"></link><updated>2015-12-14T01:30:00+01:00</updated><author><name>Leo Hung</name></author><id>tag:leohung.net,2015-12-14:apache-spark-huan-jing-bian-shu-diao-zheng.html</id><summary type="html">&lt;p&gt;目前使用 Apache Spark 的心得是：Spark真的很棒，處理計算時間快得沒話說。但是他許多預設的參數並不適用於實際的機群，或者可以執行得更快一些，值得再做進一步的調整。這篇整理了我這一學期做實驗的操作心得：哪些環境變數該調，又該怎麼調。如果你有不同的見解或其他推薦的參數和調整方向，還請忘不吝惜指教批評。&lt;/p&gt;
 &lt;h2&gt;怎麼改&lt;/h2&gt;
 &lt;p&gt;可以透過修改 $spark_dir/conf/spark-defaults.conf 達成。&lt;/p&gt;
 &lt;h2&gt;spark.serializer&lt;/h2&gt;
 &lt;p&gt;Spark 預設使用 Java 的 ObjectOutputStream framework 處理物件的序列化(serialize)。不過官網建議使用另一套 KryoSerializer，效能處理的速度會比較快。&lt;/p&gt;
 &lt;p&gt;spark.serializer                 org.apache.spark.serializer.KryoSerializer&lt;/p&gt;
 &lt;h2&gt;spark.driver.memory&lt;/h2&gt;
-&lt;p&gt;Spark 的 driver 所先佔有的記憶體其實很少，如果有用到 collectAsMap ，driver會把分散在各個 worker 的資料蒐集回 driver 形成物件。如果 driver 記憶體不夠大，collectAsMap又形成過大的物件，會導致記憶體不足 (out of memory) 的錯誤，造成整個工作失敗。&lt;/p&gt;
+&lt;p&gt;Spark 的 driver 所先預留的記憶體其實很少，如果有用到 collectAsMap ，driver會把分散在各個 worker 的資料蒐集回 driver 形成物件。如果 driver 記憶體不夠大，collectAsMap又形成過大的物件，會導致記憶體不足 (out of memory) 的錯誤，造成整個工作失敗。&lt;/p&gt;
 &lt;p&gt;e.g.
   spark.driver.memory              55047m&lt;/p&gt;
 &lt;h2&gt;spark.locality.wait&lt;/h2&gt;
