@@ -69,6 +69,18 @@ Posts tagged 'parameter'                </h1>
                 in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Mon 14 December 2015
             </p>
     </header>
+</section><section class="post">
+    <header class="post-header">
+        <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
+        </a>
+        <h3><a class="post-title" href="http://leohung.net/di-jia-bu-shu-apache-spark-ji-qun-de-mi-jue.html">低價部署 Apache Spark 機群的秘訣</a></h3>
+            <p class="post-meta"><p>Apache Spark 的開發團隊相當貼心，下載回來的壓縮包裡面包含部署的腳本(ec2/spark_ec2.py)，只要輸入 AWS 的帳號資訊，就能簡單的使用命令列部署 Spark 在 AWS 雲端上。</p>
+<p>AWS 可租用的機器分成兩種： on-demand instance 和 spot instance。on-demand instance 是穩定的租用機器，只要付款，機器就可以使用，也不是隨便終止。而 spot instance則是會根據市場價格決定是否能繼續租用機器，如果目前市場價格高過於使用者願意支付的最高價格，AWS 則會強制關閉機器，而將他轉租給其他使用者。由於 on-demand 穩定性高，價格通常是 spot instance 機器的幾倍以上 (視時間而定)。相對的，spot instance雖然使用風險高，但價格也便宜。</p>
+<p>Spark 部署的腳本也有提供將機群設定為 spot ...</p></p>
+            <p class="post-meta">
+                in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Mon 14 December 2015
+            </p>
+    </header>
 </section><div class="pagination-wrapper content-subhead">
     <div class="pagination">
         <div class="pagination-left">

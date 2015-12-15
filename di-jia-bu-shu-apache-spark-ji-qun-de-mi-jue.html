@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LeoHung.self(), ">
+
+        <link rel="alternate"  href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" title="LeoHung.self() Full Atom Feed"/>
+
+        <title>低價部署 Apache Spark 機群的秘訣 // LeoHung.self() // </title>
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://leohung.net/theme/css/pure.css">
+    <link rel="stylesheet" href="http://leohung.net/theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
+</head>
+
+<body>
+<div class="pure-g-r" id="layout">
+    <div class="sidebar sidebar-article pure-u">
+        <header class="header-article">
+            <hgroup>
+                <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
+                </a>
+                <h2 class="article-info">Leo Hung</h2>
+                <small class="about-author"></small>
+                <h5>Published</h5>
+                <p>Mon 14 December 2015</p>
+                <a href="/">&larr;Home</a>
+            </hgroup>
+        </header>
+    </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1>低價部署 Apache Spark 機群的秘訣</h1>
+                        <p class="post-meta">
+                            // under                                 <a class="post-category" href="http://leohung.net/tag/spark.html">spark</a>
+                                <a class="post-category" href="http://leohung.net/tag/parameter.html">parameter</a>
+                        </p>
+                </header>
+            </section>
+            <p>Apache Spark 的開發團隊相當貼心，下載回來的壓縮包裡面包含部署的腳本(ec2/spark_ec2.py)，只要輸入 AWS 的帳號資訊，就能簡單的使用命令列部署 Spark 在 AWS 雲端上。</p>
+<p>AWS 可租用的機器分成兩種： on-demand instance 和 spot instance。on-demand instance 是穩定的租用機器，只要付款，機器就可以使用，也不是隨便終止。而 spot instance則是會根據市場價格決定是否能繼續租用機器，如果目前市場價格高過於使用者願意支付的最高價格，AWS 則會強制關閉機器，而將他轉租給其他使用者。由於 on-demand 穩定性高，價格通常是 spot instance 機器的幾倍以上 (視時間而定)。相對的，spot instance雖然使用風險高，但價格也便宜。</p>
+<p>Spark 部署的腳本也有提供將機群設定為 spot instance 的參數，但僅限於 worker。driver則是一定會設定成 on-demand instance。</p>
+<p>對於經費經常不足的研究者來說，時常只能在有限的預算之內掙扎，使用風險是可以承受的，實驗被砍了大不了重跑就算了。</p>
+<p>為此，我修改了 spark_ec2.py ，延伸把 driver 也設定成 spot instance 的參數。</p>
+<p>請參考：https://github.com/LeoHung/cheaper-ec2-spark-deploy</p>
+<p>只要將 "--master-spot-price=$MASTER_SPOT_PRICE" 設定好，就會將 driver 也設定為便宜的 spot instance。以我自己的經驗，原本我已經把 worker 都設定成了 spot instance，如果再把 driver 也設定為 spot instance，可以將總價格再壓縮到原本的70% ~50%，相當經濟實惠。</p>
+            <div class="hr"></div>
+            <a href="#" class="go-top">Go Top</a>
+<footer class="footer">
+    <p>&copy; LeoHung.self() &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>        </div>
+    </div>
+</div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>
