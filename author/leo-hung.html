@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="LeoHung.self(), ">
 
-        <link rel="alternate"  href="http://leohung.net/feeds/all.atom.xml" type="application/atom+xml" title="LeoHung.self() Full Atom Feed"/>
+        <link rel="alternate"  href="https://leohung.net/feeds/all.atom.xml" type="application/atom+xml" title="LeoHung.self() Full Atom Feed"/>
 
         <title>Leo Hung author // LeoHung.self() // </title>
 
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://leohung.net/theme/css/pure.css">
+    <link rel="stylesheet" href="https://leohung.net/theme/css/pure.css">
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 </head>
@@ -27,12 +27,12 @@
                     <h1 class="brand-main"><a href="/">LeoHung.self()</a></h1>
                     <p class="tagline"></p>
                     <ul>
-                    <li class="links"><a href="http://leohung.net/#education">Education</a></li>
-                    <li class="links"><a href="http://leohung.net/#experience">Experience</a></li>
-                    <li class="links"><a href="http://leohung.net/#projects">Projects</a></li>
-                    <li class="links"><a href="http://leohung.net/#skills">Skills</a></li>
-                    <li class="links"><a href="http://leohung.net/#publication">Publication</a></li>
-                    <li class="links"><a href="http://leohung.net/archives.html">Blog</a></li>
+                    <li class="links"><a href="https://leohung.net/#education">Education</a></li>
+                    <li class="links"><a href="https://leohung.net/#experience">Experience</a></li>
+                    <li class="links"><a href="https://leohung.net/#projects">Projects</a></li>
+                    <li class="links"><a href="https://leohung.net/#skills">Skills</a></li>
+                    <li class="links"><a href="https://leohung.net/#publication">Publication</a></li>
+                    <li class="links"><a href="https://leohung.net/archives.html">Blog</a></li>
                     </ul>
                     <p class="social">
                         <a href="https://github.com/LeoHung">
@@ -54,9 +54,9 @@
 Posts by 'Leo Hung'                </h1>
 <section class="post">
     <header class="post-header">
-        <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
+        <a href="https://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
         </a>
-        <h3><a class="post-title" href="http://leohung.net/apache-spark-huan-jing-bian-shu-diao-zheng.html">Apache Spark 環境變數調整</a></h3>
+        <h3><a class="post-title" href="https://leohung.net/apache-spark-huan-jing-bian-shu-diao-zheng.html">Apache Spark 環境變數調整</a></h3>
             <p class="post-meta"><p>目前使用 Apache Spark 的心得是：Spark真的很棒，處理計算時間快得沒話說。但是他許多預設的參數並不適用於實際的機群，或者可以執行得更快一些，值得再做進一步的調整。這篇整理了我這一學期做實驗的操作心得：哪些環境變數該調，又該怎麼調。如果你有不同的見解或其他推薦的參數和調整方向，還請不吝惜指教批評。</p>
 <h2>怎麼改</h2>
 <p>可以透過修改 $spark_dir/conf/spark-defaults.conf 達成。</p>
@@ -66,26 +66,26 @@ Posts by 'Leo Hung'                </h1>
 <h2>spark.driver.memory</h2>
 <p>Spark 的 driver 所先預留的記憶體其實很少，如果有用到 collectAsMap ...</p></p>
             <p class="post-meta">
-                in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Mon 14 December 2015
+                in <a href="https://leohung.net/category/blogs.html">blogs</a> &middot; Mon 14 December 2015
             </p>
     </header>
 </section><section class="post">
     <header class="post-header">
-        <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
+        <a href="https://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
         </a>
-        <h3><a class="post-title" href="http://leohung.net/di-jia-bu-shu-apache-spark-ji-qun-de-mi-jue.html">低價部署 Apache Spark 機群的秘訣</a></h3>
+        <h3><a class="post-title" href="https://leohung.net/di-jia-bu-shu-apache-spark-ji-qun-de-mi-jue.html">低價部署 Apache Spark 機群的秘訣</a></h3>
             <p class="post-meta"><p>Apache Spark 的開發團隊相當貼心，下載回來的壓縮包裡面包含部署的腳本(ec2/spark_ec2.py)，只要輸入 AWS 的帳號資訊，就能簡單的使用命令列部署 Spark 在 AWS 雲端上。</p>
 <p>AWS 可租用的機器分成兩種： on-demand instance 和 spot instance。on-demand instance 是穩定的租用機器，只要付款，機器就可以使用，也不是隨便終止。而 spot instance則是會根據市場價格決定是否能繼續租用機器，如果目前市場價格高過於使用者願意支付的最高價格，AWS 則會強制關閉機器，而將他轉租給其他使用者。由於 on-demand 穩定性高，價格通常是 spot instance 機器的幾倍以上 (視時間而定)。相對的，spot instance雖然使用風險高，但價格也便宜。</p>
 <p>Spark 部署的腳本也有提供將機群設定為 spot ...</p></p>
             <p class="post-meta">
-                in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Mon 14 December 2015
+                in <a href="https://leohung.net/category/blogs.html">blogs</a> &middot; Mon 14 December 2015
             </p>
     </header>
 </section><section class="post">
     <header class="post-header">
-        <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
+        <a href="https://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
         </a>
-        <h3><a class="post-title" href="http://leohung.net/easy-to-read-ml-papers-and-blogs.html">Easy to read ML papers and blogs</a></h3>
+        <h3><a class="post-title" href="https://leohung.net/easy-to-read-ml-papers-and-blogs.html">Easy to read ML papers and blogs</a></h3>
             <p class="post-meta"><h1>EM</h1>
 <ul>
 <li>从最大似然到EM算法浅解. <a href="http://blog.csdn.net/zouxy09/article/details/8537620">link</a></li>
@@ -96,14 +96,14 @@ Posts by 'Leo Hung'                </h1>
 <li>Jonathon Shlens (2014) A Tutorial on Principal Component Analysis. <a href="http://arxiv.org/pdf/1404.1100.pdf">link</a></li>
 </ul></p>
             <p class="post-meta">
-                in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Tue 24 November 2015
+                in <a href="https://leohung.net/category/blogs.html">blogs</a> &middot; Tue 24 November 2015
             </p>
     </header>
 </section><section class="post">
     <header class="post-header">
-        <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
+        <a href="https://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
         </a>
-        <h3><a class="post-title" href="http://leohung.net/fen-bu-shi-ju-liang-ji-jie-xue-xi-xi-tong-mo-xing-mapreduce-data-graph-parameter-server.html">分布式巨量機械學習系統模型: MapReduce, Data Graph, Parameter Server</a></h3>
+        <h3><a class="post-title" href="https://leohung.net/fen-bu-shi-ju-liang-ji-jie-xue-xi-xi-tong-mo-xing-mapreduce-data-graph-parameter-server.html">分布式巨量機械學習系統模型: MapReduce, Data Graph, Parameter Server</a></h3>
             <p class="post-meta"><h2>總結</h2>
 <p>巨量機械學習需要處理的挑戰有二：(1) 訓練資料集過大 (2) 機械學習模型本身過於複雜，所需要訓練的參數過多。這兩個原因使得無法使用單一主機解決巨量機械學習的問題。為此，許多團隊於近幾年提出分布式機械學習系統，好著手處理巨量資料的挑戰。本篇整理了目前分布式巨量機械學習系統的三種典範：MapReduce, Data Graph, 和 Parameter Server.</p>
 <h2>為什麼我們需要分布式系統處理巨量機械學習？</h2>
@@ -116,26 +116,26 @@ Posts by 'Leo Hung'                </h1>
 <p></center></p>
 <p>MapReduce [9] 是很熱門的分布式計算框架, 而 ...</p></p>
             <p class="post-meta">
-                in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Wed 13 May 2015
+                in <a href="https://leohung.net/category/blogs.html">blogs</a> &middot; Wed 13 May 2015
             </p>
     </header>
 </section><section class="post">
     <header class="post-header">
-        <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
+        <a href="https://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
         </a>
-        <h3><a class="post-title" href="http://leohung.net/large-scale-distributed-machine-learning-mapreduce-data-graph-and-parameter-server.html">Large-scale Distributed Machine Learning: MapReduce, Data Graph, and Parameter Server</a></h3>
+        <h3><a class="post-title" href="https://leohung.net/large-scale-distributed-machine-learning-mapreduce-data-graph-and-parameter-server.html">Large-scale Distributed Machine Learning: MapReduce, Data Graph, and Parameter Server</a></h3>
             <p class="post-meta"><h2>Summary</h2>
 <p>Big machine learning is hard because (1) the amount of traning data is huge (2) the number of parameters is large. This note summarizes three paradigms of distributed architecture for large-scale machine learning problem: MapReduce, Data Graph, and Parameter Server.</p>
 <h2>Why should we build distributed system for large-scale machine ...</h2></p>
             <p class="post-meta">
-                in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Wed 13 May 2015
+                in <a href="https://leohung.net/category/blogs.html">blogs</a> &middot; Wed 13 May 2015
             </p>
     </header>
 </section><section class="post">
     <header class="post-header">
-        <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
+        <a href="https://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
         </a>
-        <h3><a class="post-title" href="http://leohung.net/networkx-network-discovering-the-core-of-company-network-in-taiwan-by-using-networkx-yong-networkxzhao-chu-tai-wan-gong-si-wang-luo-he-xin-pycon-tw-2014.html">"NetworkX Network: Discovering the core of company network in Taiwan by using NetworkX. (用NetworkX找出台灣公司網絡核心) @ PyCon TW 2014"</a></h3>
+        <h3><a class="post-title" href="https://leohung.net/networkx-network-discovering-the-core-of-company-network-in-taiwan-by-using-networkx-yong-networkxzhao-chu-tai-wan-gong-si-wang-luo-he-xin-pycon-tw-2014.html">"NetworkX Network: Discovering the core of company network in Taiwan by using NetworkX. (用NetworkX找出台灣公司網絡核心) @ PyCon TW 2014"</a></h3>
             <p class="post-meta"><h1>Slide</h1>
 <p><iframe src="http://www.slideshare.net/slideshow/embed_code/34775422" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/AskusHong/pycon2014" title="NetworkX Network: 用NetworkX找出台灣公司網絡核心 by Leo Hung @PyCon TW 2014" target="_blank">NetworkX Network: 用NetworkX找出台灣公司網絡核心 by Leo Hung @PyCon TW 2014</a> </strong> from <strong><a href="http://www.slideshare.net/AskusHong" target="_blank">SanChan Hong</a></strong> </div></p>
 <h1>Code</h1>
@@ -143,18 +143,18 @@ Posts by 'Leo Hung'                </h1>
 <h1>Result</h1>
 <p><img alt="Closeness" src="/images/closeness_50.png" /></p></p>
             <p class="post-meta">
-                in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Sat 17 May 2014
+                in <a href="https://leohung.net/category/blogs.html">blogs</a> &middot; Sat 17 May 2014
             </p>
     </header>
 </section><section class="post">
     <header class="post-header">
-        <a href="http://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
+        <a href="https://leohung.net/author/leo-hung.html" title="See posts by Leo Hung">
         </a>
-        <h3><a class="post-title" href="http://leohung.net/teaching-elasticsearch-reading-chinese-in-1-minutes.html">"Teaching Elasticsearch reading Chinese in 1 Minutes "</a></h3>
+        <h3><a class="post-title" href="https://leohung.net/teaching-elasticsearch-reading-chinese-in-1-minutes.html">"Teaching Elasticsearch reading Chinese in 1 Minutes "</a></h3>
             <p class="post-meta"><h1>Teaching Elasticsearch reading Chinese in 1 Minutes</h1>
 <p>Elasticsearch(es) is a powerful open source solution for searching, which is serving in wikipedia currently; however, Chinese users is not so lucky with es, becasue the default analyzer of es cannot deal with Chinese well, which will tokenzie Chinese sentences into individual ...</p></p>
             <p class="post-meta">
-                in <a href="http://leohung.net/category/blogs.html">blogs</a> &middot; Sat 26 April 2014
+                in <a href="https://leohung.net/category/blogs.html">blogs</a> &middot; Sat 26 April 2014
             </p>
     </header>
 </section><div class="pagination-wrapper content-subhead">
